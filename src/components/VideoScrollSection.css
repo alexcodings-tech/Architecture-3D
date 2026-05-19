@@ -1,0 +1,75 @@
+/* Hidden video — decode source only, never shown */
+.video-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/*
+  Section height = scroll distance for the whole video.
+  400vh → user scrolls 4 viewport-heights to go from frame 0 to last frame.
+  Increase for a slower, more deliberate feel.
+*/
+.video-scroll-section {
+  position: relative;
+  height: 400vh;
+  width: 100%;
+  background: var(--muted-black);
+}
+
+/* Sticky container stays pinned while section scrolls past */
+.video-sticky-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--muted-black);
+}
+
+/* Canvas covers the sticky container — cover mode via JS sizing */
+.video-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  display: block;
+  will-change: contents;
+  backface-visibility: hidden;
+  image-rendering: auto;
+}
+
+/* Subtle edge vignette for depth — no colour */
+.canvas-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Mobile: give more scroll room so touch scrubbing feels precise */
+@media (max-width: 768px) {
+  .video-scroll-section {
+    height: 500vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-scroll-section {
+    height: 600vh;
+  }
+}

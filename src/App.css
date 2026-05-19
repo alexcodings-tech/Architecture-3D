@@ -1,0 +1,15 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--muted-black);
+}
+
+.main-content {
+  width: 100%;
+  animation: fadeInMain 0.8s ease forwards;
+}
+
+@keyframes fadeInMain {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

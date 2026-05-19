@@ -1,0 +1,39 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --white: #ffffff;
+  --off-white: #f5f4f0;
+  --soft-grey: #c8c4bc;
+  --muted-black: #0a0a0a;
+  --blue-grey: #8a9aaa;
+  --warm-highlight: #d4c9b8;
+}
+
+html {
+  scroll-behavior: auto; /* We handle scroll manually */
+  background: var(--muted-black);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--muted-black);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent pull-to-refresh on mobile */
+body {
+  overscroll-behavior: none;
+}
+
+/* Hide scrollbar but keep functionality */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}

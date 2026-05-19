@@ -1,0 +1,71 @@
+.outro-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--muted-black);
+  overflow: hidden;
+}
+
+.outro-content {
+  text-align: center;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.4s ease, transform 1.4s ease;
+}
+
+.outro-content--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.outro-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.outro-eyebrow {
+  font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--blue-grey);
+}
+
+.outro-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--off-white);
+  letter-spacing: -0.01em;
+}
+
+.outro-headline em {
+  font-style: italic;
+  color: var(--warm-highlight);
+}
+
+.outro-body {
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--soft-grey);
+  line-height: 1.8;
+  max-width: 400px;
+}
+
+@media (max-width: 768px) {
+  .outro-headline {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+}

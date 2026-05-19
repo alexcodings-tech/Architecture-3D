@@ -1,32 +1,21 @@
-/* Phase 1: autoplay video — covers the sticky container */
-.mobile-bg-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover;
-  opacity: 1;
-  transition: opacity 0.4s ease;
-  z-index: 1;
-}
-
-/* Phase 2: canvas — starts invisible, fades in when ready */
+/* Canvas always visible — covers the sticky container */
 .mobile-canvas {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 2;
-  /* CSS fills viewport — JS sets internal pixel dimensions at 0.5× */
-  width: 100% !important;
-  height: 100% !important;
+
+  /*
+    CSS dimensions always fill the viewport.
+    Internal pixel dimensions (canvas.width/height) are set at 0.5× in JS.
+    The browser upscales — looks fine, runs fast.
+  */
+  width: 100vw !important;
+  height: 100vh !important;
   object-fit: cover;
+
+  display: block;
+  z-index: 1;
+  will-change: contents;
+  backface-visibility: hidden;
 }

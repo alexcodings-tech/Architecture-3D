@@ -4,6 +4,7 @@ import VideoScrollSection from './components/VideoScrollSection'
 import MobileVideoSection from './components/MobileVideoSection'
 import OutroSection from './components/OutroSection'
 import './App.css'
+import './components/MobileVideoSection.css'
 
 // Detect mobile once at module load — avoids repeated checks in render.
 // Matches phones and tablets (touch + narrow screen or explicit UA hint).

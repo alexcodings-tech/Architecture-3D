@@ -1,0 +1,55 @@
+/* Preparing overlay — shown while frames extract in background */
+.mobile-preparing {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  background: var(--muted-black);
+}
+
+.mobile-prep-bar-track {
+  width: min(200px, 55vw);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-prep-bar-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue-grey), var(--off-white));
+  transition: width 0.25s ease;
+}
+
+.mobile-prep-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--soft-grey);
+  opacity: 0.6;
+}
+
+/* Canvas starts invisible, fades in when ready */
+.mobile-canvas {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  /* CSS fills the sticky container — JS sets internal pixel dimensions */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.mobile-canvas--ready {
+  opacity: 1;
+}
